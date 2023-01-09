@@ -1,0 +1,364 @@
+/* 푸터 */
+#fh5co-footer p {
+  color: black;
+}
+.fh5co-social1 li a {
+  color: #f7c873; 
+}
+/* 순위 슬라이드 */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,400,900,800i");
+body {
+  --slides-per-page: 2;
+  margin: 0;
+  height: 100vh;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#hero-slides {
+  height: 70vh;
+  background: #ccc;
+}
+#hero-slides #header {
+  height: 12vh;
+  line-height: 12vh;
+  padding: 0 3vw;
+  position: relative;
+}
+#hero-slides #header #logo {
+  font-size: 2.5vh;
+  font-style: italic;
+}
+
+#hero-slides #header #menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  padding: 0 3vw;
+}
+
+#hero-slides #slides-cont {
+  position: relative;
+  --button-height: 6vh;
+  --button-spacing: 0.2vh;
+}
+#hero-slides #slides-cont .button {
+  width: 5vw;
+  height: var(--button-height);
+  background: gray;
+  position: absolute;
+  right: 5.375vw;
+  top: 38vh;
+  z-index: 100;
+  cursor: pointer;
+}
+#hero-slides #slides-cont .button:before, #hero-slides #slides-cont .button:after {
+  line-height: var(--button-height);
+  position: absolute;
+  margin-left: -0.25vw;
+  pointer-events: none;
+  transform: scale(0.75, 1.5);
+  transition: 125ms ease-in-out;
+}
+#hero-slides #slides-cont .button:before {
+  left: 50%;
+}
+#hero-slides #slides-cont .button:after {
+  opacity: 0;
+}
+#hero-slides #slides-cont .button:hover:before, #hero-slides #slides-cont .button:hover:after {
+  transition: 250ms ease-in-out;
+}
+#hero-slides #slides-cont .button:hover:before {
+  opacity: 0;
+}
+#hero-slides #slides-cont .button:hover:after {
+  left: 50% !important;
+  opacity: 1;
+}
+#hero-slides #slides-cont #next {
+  margin-top: calc(-1 * (var(--button-height) + var(--button-spacing)));
+}
+#hero-slides #slides-cont #next:before, #hero-slides #slides-cont #next:after {
+  content: ">";
+}
+#hero-slides #slides-cont #next:after {
+  left: 30%;
+}
+#hero-slides #slides-cont #next:hover:before {
+  left: 70%;
+}
+#hero-slides #slides-cont #prev {
+  margin-top: var(--button-spacing);
+  opacity: calc(var(--page) + 0.5);
+  transition: 500ms opacity;
+}
+#hero-slides #slides-cont #prev:before, #hero-slides #slides-cont #prev:after {
+  content: "<";
+}
+#hero-slides #slides-cont #prev:after {
+  left: 70%;
+}
+#hero-slides #slides-cont #prev:hover:before {
+  left: 30%;
+}
+#hero-slides #slides-cont #next-catch,
+#hero-slides #slides-cont #prev-catch {
+  width: 10vw;
+  height: 76vh;
+  position: absolute;
+  top: 0;
+  z-index: 90;
+}
+#hero-slides #slides-cont #next-catch {
+  right: 0;
+}
+#hero-slides #slides-cont #prev-catch {
+  left: 0;
+}
+#hero-slides #slides {
+  --slides-height: 50vh;
+  width: auto;
+  height: var(--slides-height);
+  padding: 0 10vw;
+  font-size: 0;
+  white-space: nowrap;
+  position: absolute;
+  transform: translate3D(calc(var(--page) * -80vw), 0, 0);
+  transition: 1500ms transform cubic-bezier(0.7, 0, 0.3, 1);
+}
+#hero-slides #slides .slide {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.5vw;
+  width: 24em;
+  height: var(--slides-height);
+  margin: 0 1.333em;
+  background: #101419;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  white-space: normal;
+  word-break: break-word;
+  position: relative;
+}
+#hero-slides #slides .slide:before {
+  content: "";
+  display: block;
+  background: linear-gradient(180deg, rgba(86, 97, 108, 0) 0%, rgba(33, 52, 69, 0.7) 100%);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#hero-slides #slides .slide .number {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.5));
+}
+#hero-slides #slides .slide .number, #hero-slides #slides .slide .number:before, #hero-slides #slides .slide .number:after {
+  vertical-align: middle;
+}
+#hero-slides #slides .slide .number:before, #hero-slides #slides .slide .number:after {
+  display: inline-block;
+  content: "";
+  height: 0.133em;
+  margin-top: -0.2em;
+  background: white;
+}
+#hero-slides #slides .slide .number:before {
+  width: 0;
+  margin-left: 0;
+}
+#hero-slides #slides .slide .number:after {
+  width: 3em;
+  margin-left: 1em;
+}
+#hero-slides #slides .slide .body {
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  right: 2em;
+}
+#hero-slides #slides .slide .location,
+#hero-slides #slides .slide .headline {
+  position: relative;
+  bottom: 0;
+  cursor: default;
+}
+#hero-slides #slides .slide:before,
+#hero-slides #slides .slide .number:before,
+#hero-slides #slides .slide .number:after,
+#hero-slides #slides .slide .location,
+#hero-slides #slides .slide .headline,
+#hero-slides #slides .slide .link {
+  transition: 375ms cubic-bezier(0.7, 0, 0.3, 1);
+}
+#hero-slides #slides .slide .location {
+  font-weight: 100;
+  margin-bottom: 1.5em;
+  transition-delay: 60ms;
+}
+#hero-slides #slides .slide .headline {
+  font-size: 2.667em;
+  font-weight: 900;
+  transition-delay: 50ms;
+}
+#hero-slides #slides .slide .link {
+  display: inline-block;
+  background: gray;
+  padding: 0.5em 1.25em;
+  font-size: 1.33em;
+  opacity: 0;
+  position: absolute;
+  bottom: -2em;
+  pointer-events: none;
+  transition-delay: 25ms;
+}
+#hero-slides #slides .slide.hover:before, #hero-slides #slides .slide:hover:before {
+  opacity: 1;
+}
+#hero-slides #slides .slide.hover:before,
+#hero-slides #slides .slide.hover .number:before,
+#hero-slides #slides .slide.hover .number:after,
+#hero-slides #slides .slide.hover .location,
+#hero-slides #slides .slide.hover .headline,
+#hero-slides #slides .slide.hover .link, #hero-slides #slides .slide:hover:before,
+#hero-slides #slides .slide:hover .number:before,
+#hero-slides #slides .slide:hover .number:after,
+#hero-slides #slides .slide:hover .location,
+#hero-slides #slides .slide:hover .headline,
+#hero-slides #slides .slide:hover .link {
+  transition: 500ms cubic-bezier(0.7, 0, 0.3, 1);
+}
+#hero-slides #slides .slide.hover .number:before, #hero-slides #slides .slide:hover .number:before {
+  width: 3em;
+  margin-right: 1em;
+}
+#hero-slides #slides .slide.hover .number:after, #hero-slides #slides .slide:hover .number:after {
+  width: 0;
+  margin-right: 0;
+}
+#hero-slides #slides .slide.hover .location, #hero-slides #slides .slide:hover .location {
+  transition-delay: 0;
+  bottom: 4em;
+}
+#hero-slides #slides .slide.hover .headline, #hero-slides #slides .slide:hover .headline {
+  transition-delay: 100ms;
+  bottom: 1.5em;
+}
+#hero-slides #slides .slide.hover .link, #hero-slides #slides .slide:hover .link {
+  bottom: 0;
+  opacity: 1;
+  transition-delay: 250ms;
+  pointer-events: auto;
+}
+@media (min-width: 1200px) and (max-width: 1699px) {
+  body {
+    --slides-per-page: 3;
+  }
+
+  #hero-slides #slides .slide {
+    font-size: 1vw;
+  }
+}
+@media (min-width: 1700px) {
+  body {
+    --slide-per-age: 4;
+  }
+
+  #hero-slides #slides .slide {
+    font-size: 0.75vw;
+  }
+}
+#list {
+  height: 200px;
+}
+#list span {
+  color: #101419;
+  font-size: 25px;
+  position: relative;
+  top: 30%;
+  left: 11%;
+}
+#list #m1 {
+  font-weight: bold;
+  font-size: 25px;
+}
+/* 본문부분 */
+#wrap {
+  width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  cursor: pointer;
+}
+#n1 {
+  width: 800px;
+  margin: 20px auto;
+}
+/* 본문내용 */
+#wrap2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#wrap2 .box1 {
+  width: 65%;
+  float: left;
+}
+h5:hover {
+  text-decoration: underline;
+}
+#wrap2 div {
+  width: 60%;
+  height: 200px;
+  margin: 30px;
+  
+}
+#wrap2 div h3,h5 {
+  float: left;
+  text-align: justify;
+}
+#left {
+  float: left;
+}
+#right {
+  float: right;
+  color: mediumaquamarine;
+}
+#wrap2 img {
+  float: right;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 30px;
+}
+.box1 {
+  border-bottom: 1.5px solid #ccc;
+}
+.a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+  color: black;
+}
+.a div:hover {
+  font-weight: 550;
+  /* color: teal; */
+}
+#list {
+  cursor: pointer;
+}
